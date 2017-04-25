@@ -17,7 +17,7 @@
     "rejoice": "^4.0.0"
   },
   "peerDependencies": {
-    "hapi": ">= 8.x.x"
+    "hapi": ">=15.2.0"
   },
   "main": "dist/index.js",
   "scripts": {
