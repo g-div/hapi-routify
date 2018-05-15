@@ -15,7 +15,7 @@
     "lab": "^14.0.1",
     "node-readme": "^0.1.9",
     "npm-run-all": "^4.0.2",
-    "rejoice": "^4.0.0"
+    "rejoice": "^5.0.0"
   },
   "peerDependencies": {
     "hapi": ">= 8.x.x"
