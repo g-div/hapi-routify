@@ -23,21 +23,14 @@ If you use [hapi](http://hapijs.com) with [glue](https://github.com/hapijs/glue)
 
 ```javascript
 {
-    "server": {
-        "app": {
-            "name": "simple proxy"
-        }
-    },
-    "connections": [{
-        "port": 8000,
-        "host": "localhost",
-        "labels": ["proxy"]
-    }],
-    "registrations": [{
-      "plugin": "h2o2"
-    }, {
-      "plugin": {
-        "register": "hapi-routify",
+  "server": {
+    "port": 8000
+  },
+  "register": {
+    "plugins": [
+      "h2o2",
+      {
+        "plugin": "hapi-routify",
         "options": {
           "routes": [{
             "method": "GET",
@@ -45,16 +38,17 @@ If you use [hapi](http://hapijs.com) with [glue](https://github.com/hapijs/glue)
             "handler": {
               "proxy": {
                 "host": "localhost",
-                "port": 1337
+                "port": 3000
               }
             }
           }]
         }
-      }
-    }, {
-      "plugin": "blipp"
-    }]
+      },
+      "blipp"
+    ]
+  }
 }
+
 
 ```
 This example uses [h2o2](https://github.com/hapijs/h2o2) to proxy all your requests to [http://localhost:1337](http://localhost:1337).
@@ -75,10 +69,8 @@ Package | Version | Dev
 [code](https://www.npmjs.com/package/code) | ^5.2.4 | ✔
 [h2o2](https://www.npmjs.com/package/h2o2) | ^8.0.0 | ✔
 [hapi](https://www.npmjs.com/package/hapi) | ^17.8.1 | ✔
-[husky](https://www.npmjs.com/package/husky) | ^0.14.0 | ✔
 [lab](https://www.npmjs.com/package/lab) | ^18.0.0 | ✔
 [node-readme](https://www.npmjs.com/package/node-readme) | ^0.1.9 | ✔
-[npm-run-all](https://www.npmjs.com/package/npm-run-all) | ^4.1.5 | ✔
 [rejoice](https://www.npmjs.com/package/rejoice) | ^5.0.1 | ✔
 
 
