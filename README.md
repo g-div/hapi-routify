@@ -55,6 +55,7 @@ If you use [hapi](http://hapijs.com) with [glue](https://github.com/hapijs/glue)
       "plugin": "blipp"
     }]
 }
+
 ```
 This example uses [h2o2](https://github.com/hapijs/h2o2) to proxy all your requests to [http://localhost:1337](http://localhost:1337).
 
@@ -70,18 +71,15 @@ If you use *rejoice* there are actually two ways to provide your own handler:
 
 Package | Version | Dev
 --- |:---:|:---:
-[babel-cli](https://www.npmjs.com/package/babel-cli) | ^6.2.0 | ✔
-[babel-core](https://www.npmjs.com/package/babel-core) | ^6.2.1 | ✔
-[babel-preset-es2015](https://www.npmjs.com/package/babel-preset-es2015) | ^6.1.18 | ✔
-[blipp](https://www.npmjs.com/package/blipp) | ^2.3.0 | ✔
-[code](https://www.npmjs.com/package/code) | ^4.0.0 | ✔
-[h2o2](https://www.npmjs.com/package/h2o2) | ^5.0.0 | ✔
-[hapi](https://www.npmjs.com/package/hapi) | ^16.1.1 | ✔
-[husky](https://www.npmjs.com/package/husky) | ^0.13.3 | ✔
-[lab](https://www.npmjs.com/package/lab) | ^14.0.1 | ✔
+[blipp](https://www.npmjs.com/package/blipp) | ^3.0.0 | ✔
+[code](https://www.npmjs.com/package/code) | ^5.2.4 | ✔
+[h2o2](https://www.npmjs.com/package/h2o2) | ^8.0.0 | ✔
+[hapi](https://www.npmjs.com/package/hapi) | ^17.8.1 | ✔
+[husky](https://www.npmjs.com/package/husky) | ^0.14.0 | ✔
+[lab](https://www.npmjs.com/package/lab) | ^18.0.0 | ✔
 [node-readme](https://www.npmjs.com/package/node-readme) | ^0.1.9 | ✔
-[npm-run-all](https://www.npmjs.com/package/npm-run-all) | ^4.0.2 | ✔
-[rejoice](https://www.npmjs.com/package/rejoice) | ^4.0.0 | ✔
+[npm-run-all](https://www.npmjs.com/package/npm-run-all) | ^4.1.5 | ✔
+[rejoice](https://www.npmjs.com/package/rejoice) | ^5.0.1 | ✔
 
 
 ## Contribute

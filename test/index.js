@@ -1,63 +1,48 @@
-import Hapi from "hapi";
-import Code from "code";
-import Lab  from "lab";
-const lab = exports.lab = Lab.script();
-
-const describe = lab.describe;
-const it = lab.it;
-const before = lab.before;
-const after = lab.after;
-const expect = Code.expect;
-
+const Hapi = require("hapi");
+const { expect } = require("code");
+const {
+    describe,
+    it,
+    after,
+    before
+} = exports.lab = require("lab").script();
 
 describe("hapi-routify", () => {
 
-    it("can set up a route", (done) => {
+    it("can set up a route", async () => {
         const result = {hello: "world"};
 
         const options = {
             routes: [{
                 method: "GET",
                 path: "/",
-                handler: function(request, reply) {
-                    reply(result);
-                }
+                handler: (request, h) => result
             }]
         };
 
-        const server = new Hapi.Server();
-        server.connection();
-
-        server.register({register: require("../dist/index.js"), options: options}, (error) => {
-
+        const server = new Hapi.server();
+        await server.start();
+        try {
+            await server.register({plugin: require("../src/index.js"), options});
+        } catch (err) {
             expect(error).to.not.exist();
+        }
 
-            server.inject('/', (res) => {
-
-                expect(res.result).to.equal(result);
-
-                done();
-            });
-        });
+        const res = await server.inject('/');
+        expect(res.result).to.equal(result)
     });
 
-    it("doesn't setup any route, passing no arguments", (done) => {
+    it("doesn't setup any route, passing no arguments", async () => {
+        const server = new Hapi.server();
+        await server.start();
 
-        const options = {};
-
-        const server = new Hapi.Server();
-        server.connection();
-
-        server.register({register: require("../dist/index.js"), options: options}, (error) => {
-
+        try {
+            await server.register(require("../src/index.js"));
+        } catch (err) {
             expect(error).to.not.exist();
+        }
 
-            server.inject('/', (res) => {
-
-                expect(res.statusCode).to.equal(404);
-
-                done();
-            });
-        });
+        const res = await server.inject('/');
+        expect(res.statusCode).to.equal(404);
     });
 });

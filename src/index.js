@@ -1,11 +1,12 @@
-exports.register = (server, options, next) => {
-    options.routes = options.routes || [];
+const register = (server, options) => {
+  options.routes = options.routes || [];
 
-    server.route(options.routes);
-
-    return next();
+  server.route(options.routes);
 };
 
-exports.register.attributes = {
-    pkg: require("../package.json")
+exports.plugin = {
+  name: 'hapi-routify',
+  version: '0.0.1',
+  register,
+  multiple: true
 };

@@ -1,17 +1,11 @@
-exports.register = function (server, options, next) {
-	const handler = function (route, options) {
-	    return function (request, reply) {
-	        return reply({message: options.message});
-	    }
-	};
-
-	server.handler('custom', handler);
-
-    return next();
+const register = (server, options) => {
+	const handler = (route, options) => (request, h) => ({message: options.message});
+	server.decorate('handler', 'custom', handler);
 };
 
-exports.register.attributes = {
-    name: 'customHandler',
-    version: '0.0.1'
+exports.plugin = {
+  name: 'customHandler',
+	version: '0.0.1',
+	register
 };
 
