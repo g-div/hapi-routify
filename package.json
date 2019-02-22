@@ -10,7 +10,7 @@
     "hapi": "^17.8.1",
     "lab": "^18.0.0",
     "node-readme": "^0.1.9",
-    "rejoice": "^5.0.1"
+    "rejoice": "^6.0.0"
   },
   "main": "src/index.js",
   "scripts": {
